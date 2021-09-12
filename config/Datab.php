@@ -13,8 +13,7 @@ class Datab{
         $this->pdo = null;
 
         try {
-
-            // $dsn = 'mysql:host =' . $this->host . '; dbname = ' . $this->dbname;
+            
             $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
