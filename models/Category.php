@@ -27,7 +27,7 @@ class Category{
 
         $stmt = $this->pdo->prepare($query);
 
-        $stmt->execute;
+        $stmt->execute();
         
         return $stmt;
     }
