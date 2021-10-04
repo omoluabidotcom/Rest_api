@@ -2,18 +2,20 @@
 
 class Category{
 
+    // category class properties
     private $table = 'categories';
     private $pdo;
-
     public $id;
     public $name;
     public $created_at;
 
+    // constructor passing connection into category class
     public function __construct($db) {
 
         $this->pdo = $db;
     }
 
+    // method to return a data from database
     public function read() {
 
         $query ='SELECT 
@@ -32,7 +34,7 @@ class Category{
         return $stmt;
     }
 
-
+    // method to return single data from database
     public function read_single() {
 
         $query = 'SELECT
@@ -59,7 +61,7 @@ class Category{
         
       }
 
-
+      // method to add new data to database
       public function create() {
 
         $query = 'INSERT INTO 
@@ -82,7 +84,7 @@ class Category{
           return false;
       }
 
-
+      // method to update of specific data in database
       public function update() {
 
         $query = 'UPDATE ' . 
@@ -108,7 +110,7 @@ class Category{
         return false;
       }
 
-
+      // method to delete data from database
       public function delete() {
 
         $query = 'DELETE FROM ' . 

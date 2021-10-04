@@ -1,14 +1,12 @@
 <?php
 
-// include_once '../config/Datab.php';
-
 class Post{
 
-    // Database stuff
+    // post class properties
     private $pdo;
     private $table = 'posts';
 
-    // Tables stuff
+    // table related properties
     public $id;
     public $category_id;
     public $category_name;
@@ -22,7 +20,7 @@ class Post{
       $this->pdo = $db;
     }
 
-    // Read all data
+    // Read all data from database
     public function read() {
 
         $query = 'SELECT 
@@ -40,17 +38,14 @@ class Post{
                   ORDER BY 
                     p.created_at DESC';
         
-        // prepare statement
         $stmt = $this->pdo->prepare($query);
 
-        // execute statement
         $stmt->execute();
 
-        // return result
         return $stmt;
     }
 
-
+    // read single data/user from database
     public function read_single() {
 
       $query = 'SELECT
@@ -85,6 +80,7 @@ class Post{
       
     }
 
+    // add new user/data to database
     public function create() {
 
       $query = 'INSERT INTO 
@@ -115,6 +111,7 @@ class Post{
         return false;
     }
 
+    // updating data/user in database
     public function update() {
 
       $query = 'UPDATE ' . 
@@ -146,7 +143,7 @@ class Post{
       return false;
     }
 
-
+    // deleting data/user from database
     public function delete() {
 
       $query = 'DELETE FROM ' . 
